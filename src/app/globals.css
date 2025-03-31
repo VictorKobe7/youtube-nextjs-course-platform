@@ -1,3 +1,21 @@
-@tailwind base;
-@tailwind components;
+/* @tailwind base; */
+/* @tailwind components; */
 @tailwind utilities;
+
+@import 'tailwindcss';
+
+:root {
+  --color-text: #FFFFFF;
+  --color-error: #980000;
+  --color-paper: #232323;
+  --color-primary: #009688;
+  --color-background: #000000;
+  --color-primary-contrast: #FFFFFF;
+}
+
+html, body {
+  background-color: var(--color-background);
+  width: 100vw;
+  height: 100vh;
+  color: var(--color-text);
+}
