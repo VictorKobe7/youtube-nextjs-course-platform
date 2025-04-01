@@ -15,7 +15,10 @@
 
 html, body {
   background-color: var(--color-background);
-  width: 100vw;
-  height: 100vh;
   color: var(--color-text);
+  @apply w-screen h-screen underline-offset-4;
+}
+
+a {
+  @apply hover:underline active:opacity-50 transition-opacity
 }
