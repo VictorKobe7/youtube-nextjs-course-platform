@@ -14,25 +14,25 @@ export default function PageCursos() {
           variant="grid"
           items={[
             {
-              href: "/cursos/",
+              href: "/cursos/1",
               title: "Curso 1",
               image: "https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg",
               description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos optio saepe, veritatis voluptatibus repellendus harum impedit tempora dolore, dolorem fugit explicabo repellat officiis quasi aliquam eum sequi quod ducimus provident. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam, dicta accusantium natus temporibus est velit eius nemo distinctio optio at, asperiores blanditiis iusto, sed omnis corporis dolor consectetur perferendis obcaecati."
             },
             {
-              href: "/cursos/",
+              href: "/cursos/2",
               title: "Curso 2",
               image: "https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg",
               description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos optio saepe, veritatis voluptatibus repellendus harum impedit tempora dolore, dolorem fugit explicabo repellat officiis quasi aliquam eum sequi quod ducimus provident. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam, dicta accusantium natus temporibus est velit eius nemo distinctio optio at, asperiores blanditiis iusto, sed omnis corporis dolor consectetur perferendis obcaecati."
             },
             {
-              href: "/cursos/",
+              href: "/cursos/3",
               title: "Curso 3",
               image: "https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg",
               description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos optio saepe, veritatis voluptatibus repellendus harum impedit tempora dolore, dolorem fugit explicabo repellat officiis quasi aliquam eum sequi quod ducimus provident. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam, dicta accusantium natus temporibus est velit eius nemo distinctio optio at, asperiores blanditiis iusto, sed omnis corporis dolor consectetur perferendis obcaecati."
             },
             {
-              href: "/cursos/",
+              href: "/cursos/4",
               title: "Curso 4",
               image: "https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg",
               description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos optio saepe, veritatis voluptatibus repellendus harum impedit tempora dolore, dolorem fugit explicabo repellat officiis quasi aliquam eum sequi quod ducimus provident. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam, dicta accusantium natus temporibus est velit eius nemo distinctio optio at, asperiores blanditiis iusto, sed omnis corporis dolor consectetur perferendis obcaecati."
