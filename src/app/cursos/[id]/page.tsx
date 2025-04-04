@@ -1,4 +1,4 @@
-import { ClassGroup } from "@/components/course-content/components/ClassGroup";
+import { CourseContent } from "@/components/course-content/CourseContent";
 import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { StartCourse } from "@/components/StartCourse";
 import { Metadata } from "next";
@@ -26,21 +26,25 @@ export default function PageCourseDatail({ params }: Props) {
           />
         </div>
 
-        <div className="flex-[2] flex flex-col gap-4">
+        <div className="flex-[2] flex flex-col gap-12">
           <CourseHeader />
 
-          <ClassGroup
-            title="Introdução e Apresentação do Projeto"
-            idCourse="1"
-            classes={[
+          <CourseContent
+            classGroups={[
               {
-                id: "1",
-                title: "Aula 1"
-              },
-              {
-                id: "2",
-                title: "Aula 2"
-              },
+                title: "Introdução e Apresentação do Projeto",
+                idCourse: "1",
+                classes: [
+                  {
+                    id: "1",
+                    title: "Aula 1"
+                  },
+                  {
+                    id: "2",
+                    title: "Aula 2"
+                  },
+                ]
+              }
             ]}
           />
         </div>
