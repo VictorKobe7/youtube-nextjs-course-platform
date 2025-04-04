@@ -1,4 +1,4 @@
-import { Class } from "@/components/course-content/components/Class";
+import { ClassGroup } from "@/components/course-content/components/ClassGroup";
 import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { StartCourse } from "@/components/StartCourse";
 import { Metadata } from "next";
@@ -26,10 +26,23 @@ export default function PageCourseDatail({ params }: Props) {
           />
         </div>
 
-        <div className="flex-[2]">
+        <div className="flex-[2] flex flex-col gap-4">
           <CourseHeader />
 
-          <Class title="Aula 1" playerUrl={`/player/{idCourse}/{idClass}`} />
+          <ClassGroup
+            title="Introdução e Apresentação do Projeto"
+            idCourse="1"
+            classes={[
+              {
+                id: "1",
+                title: "Aula 1"
+              },
+              {
+                id: "2",
+                title: "Aula 2"
+              },
+            ]}
+          />
         </div>
       </div>
     </main>
