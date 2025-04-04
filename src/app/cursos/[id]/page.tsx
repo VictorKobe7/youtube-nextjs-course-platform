@@ -26,8 +26,12 @@ export default function PageCourseDatail({ params }: Props) {
           />
         </div>
 
-        <div className="flex-[2] flex flex-col gap-12">
-          <CourseHeader />
+        <div className="flex-[2] flex flex-col gap-12 pb-12">
+          <CourseHeader
+            title="Title"
+            description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias amet fugiat illum. Ut dolorem natus optio, eos sunt enim? Quia explicabo soluta ipsam ab, eius eveniet quibusdam iure perferendis quos? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum odit non, consequuntur quisquam quos fuga! Dolores reiciendis, voluptatum molestias error eaque quo ut qui distinctio optio voluptates, nulla, minima culpa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magnam harum tempora quasi, corrupti voluptas exercitationem minus autem rerum id, veniam aliquid saepe neque reprehenderit, cupiditate unde molestiae ipsam distinctio?"
+            numberOfClasses={48}
+          />
 
           <CourseContent
             classGroups={[
