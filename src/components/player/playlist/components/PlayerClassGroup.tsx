@@ -13,7 +13,7 @@ export interface IPlayerClassGroupProps {
   onToggle: () => void;
 }
 
-export const PlayerClassGroup = ({ title, open, position, playingIdClass: playingIdClass, classes, onCheck, onPlay, onToggle }: IPlayerClassGroupProps) => {
+export const PlayerClassGroup = ({ title, open, position, playingIdClass, classes, onCheck, onPlay, onToggle }: IPlayerClassGroupProps) => {
   return (
     <div className="flex flex-col">
       <button className="flex gap-2 p-4 bg-[var(--color-paper)] items-center active:opacity-80" onClick={onToggle}>

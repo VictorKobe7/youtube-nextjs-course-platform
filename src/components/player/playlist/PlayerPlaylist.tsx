@@ -9,7 +9,7 @@ interface IPlayerPlaylistProps {
   classGroups: Pick<IPlayerClassGroupProps, "title" | "classes">[];
 }
 
-export const PlayerPlaylist = ({ playingIdCourse, playingIdClass: playingIdClass, classGroups }: IPlayerPlaylistProps) => {
+export const PlayerPlaylist = ({ playingIdCourse, playingIdClass, classGroups }: IPlayerPlaylistProps) => {
   const router = useRouter();
 
   const [openedIndex, setOpenedIndex] = useState<number | undefined>(undefined);
