@@ -1,3 +1,5 @@
+import { PlayerHeader } from "@/components/player";
+
 interface Props {
   params: {
     idCourse: string;
@@ -7,6 +9,12 @@ interface Props {
 
 export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
   return (
-    <>{idCourse} {idClass}</>
+    <>
+      <PlayerHeader
+        title="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        subtitle="Lorem ipsum dolor sit amet"
+      />
+      {idCourse} {idClass}
+    </>
   );
 }
