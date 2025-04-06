@@ -9,13 +9,13 @@ interface Props {
 
 export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
   return (
-    <main className="flex flex-col gap-2">
+    <main className="flex flex-col gap-2 h-screen">
       <PlayerHeader
         title="Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit."
         subtitle="Lorem ipsum dolor sit amet"
       />
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 h-[calc(100vh-72px)]">
         <div className="max-w-96">
           <PlayerPlaylist
             playingIdCourse={idCourse}
