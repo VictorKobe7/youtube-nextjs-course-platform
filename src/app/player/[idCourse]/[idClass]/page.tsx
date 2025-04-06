@@ -1,4 +1,5 @@
-import { PlayerHeader } from "@/components/player";
+"use client";
+import { PlayerClass, PlayerHeader } from "@/components/player";
 
 interface Props {
   params: {
@@ -14,7 +15,14 @@ export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
         title="Lorem ipsum dolor sit amet consectetur adipisicing elit"
         subtitle="Lorem ipsum dolor sit amet"
       />
-      {idCourse} {idClass}
+
+      <PlayerClass
+        title="Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod cum repellendus ipsa iusto porro optio cumque maiores ipsam! Eius modi tempora earum vitae unde facere in harum mollitia commodi magnam."
+        playing
+        done={false}
+        onCheck={() => {}}
+        onPlay={() => {}}
+      />
     </>
   );
 }
