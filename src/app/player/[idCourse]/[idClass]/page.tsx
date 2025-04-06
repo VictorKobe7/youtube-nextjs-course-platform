@@ -1,5 +1,5 @@
 "use client";
-import { PlayerClass, PlayerHeader } from "@/components/player";
+import { PlayerClassGroup, PlayerHeader } from "@/components/player";
 
 interface Props {
   params: {
@@ -10,19 +10,35 @@ interface Props {
 
 export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
   return (
-    <>
+    <main className="flex flex-col gap-4">
       <PlayerHeader
         title="Lorem ipsum dolor sit amet consectetur adipisicing elit"
         subtitle="Lorem ipsum dolor sit amet"
       />
 
-      <PlayerClass
-        title="Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod cum repellendus ipsa iusto porro optio cumque maiores ipsam! Eius modi tempora earum vitae unde facere in harum mollitia commodi magnam."
-        playing
-        done={false}
-        onCheck={() => {}}
-        onPlay={() => {}}
+      <PlayerClassGroup
+        title="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        open
+        position={1}
+        onToggle={() => {}}
+        classes={[
+          {
+            title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            done: true,
+            playing: false
+          },
+          {
+            title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            done: false,
+            playing: true
+          },
+          {
+            title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            done: false,
+            playing: false
+          },
+        ]}
       />
-    </>
+    </main>
   );
 }
