@@ -1,18 +1,22 @@
+"use client";
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
 import { IPlayerClassProps, PlayerClass } from "./PlayerClass";
 
-interface IPlayerClassGroupProps {
+export interface IPlayerClassGroupProps {
   title: string;
   open: boolean;
   position: number;
-  classes: Omit<IPlayerClassProps, "onPlay" | "onCheck">[];
+  playingIdClass: string;
+  classes: (Pick<IPlayerClassProps, "title" | "done"> & { idClass: string })[];
+  onCheck: (idClass: string) => void;
+  onPlay: (idClass: string) => void;
   onToggle: () => void;
 }
 
-export const PlayerClassGroup = ({ title, open, position, classes, onToggle }: IPlayerClassGroupProps) => {
+export const PlayerClassGroup = ({ title, open, position, playingIdClass: playingIdClass, classes, onCheck, onPlay, onToggle }: IPlayerClassGroupProps) => {
   return (
     <div className="flex flex-col">
-      <button className="flex gap-2 p-4 bg-[var(--color-paper)] items-center" onClick={onToggle}>
+      <button className="flex gap-2 p-4 bg-[var(--color-paper)] items-center active:opacity-80" onClick={onToggle}>
         <div className="bg-[var(--color-background)] h-12 w-12 flex items-center justify-center rounded-full">{position}</div>
 
         <div className="flex flex-col flex-1 items-start">
@@ -33,8 +37,9 @@ export const PlayerClassGroup = ({ title, open, position, classes, onToggle }: I
           <li key={classItem.title}>
             <PlayerClass
               {...classItem}
-              onCheck={() => {}}
-              onPlay={() => {}}
+              playing={classItem.idClass === playingIdClass}
+              onCheck={() => onCheck(classItem.idClass)}
+              onPlay={() => onPlay(classItem.idClass)}
             />
           </li>
         ))}

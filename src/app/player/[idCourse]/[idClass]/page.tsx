@@ -1,5 +1,4 @@
-"use client";
-import { PlayerClassGroup, PlayerHeader } from "@/components/player";
+import { PlayerHeader, PlayerPlaylist } from "@/components/player";
 
 interface Props {
   params: {
@@ -10,35 +9,66 @@ interface Props {
 
 export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
   return (
-    <main className="flex flex-col gap-4">
+    <main className="flex flex-col gap-2">
       <PlayerHeader
-        title="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        title="Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit."
         subtitle="Lorem ipsum dolor sit amet"
       />
 
-      <PlayerClassGroup
-        title="Lorem ipsum dolor sit amet consectetur adipisicing elit"
-        open
-        position={1}
-        onToggle={() => {}}
-        classes={[
-          {
-            title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-            done: true,
-            playing: false
-          },
-          {
-            title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-            done: false,
-            playing: true
-          },
-          {
-            title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-            done: false,
-            playing: false
-          },
-        ]}
-      />
+      <div className="flex gap-2">
+        <div className="max-w-96">
+          <PlayerPlaylist
+            playingIdCourse={idCourse}
+            playingIdClass={idClass}
+            classGroups={[
+              {
+                title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+                classes: [
+                  {
+                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+                    done: true,
+                    idClass: "1"
+                  },
+                  {
+                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+                    done: false,
+                    idClass: "2"
+                  },
+                  {
+                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+                    done: false,
+                    idClass: "3"
+                  }
+                ]
+              },
+              {
+                title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+                classes: [
+                  {
+                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+                    done: true,
+                    idClass: "4"
+                  },
+                  {
+                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+                    done: false,
+                    idClass: "5"
+                  },
+                  {
+                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+                    done: false,
+                    idClass: "6"
+                  }
+                ]
+              }
+            ]}
+          />
+        </div>
+
+        <div className="flex-1">
+
+        </div>
+      </div>
     </main>
   );
 }
