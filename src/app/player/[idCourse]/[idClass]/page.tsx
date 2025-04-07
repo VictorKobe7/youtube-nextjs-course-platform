@@ -1,3 +1,4 @@
+"use client";
 import { PlayerHeader, PlayerPlaylist, PlayerVideoPlayer } from "@/components/player";
 
 interface Props {
@@ -69,6 +70,7 @@ export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
           <div className="aspect-video">
             <PlayerVideoPlayer
               videoId="apXQAnFX3JM"
+              onPlayNext={() => {}}
             />
           </div>
         </div>
