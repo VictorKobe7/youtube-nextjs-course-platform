@@ -66,9 +66,11 @@ export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
         </div>
 
         <div className="flex-1">
-          <PlayerVideoPlayer
-            videoId="apXQAnFX3JM"
-          />
+          <div className="aspect-video">
+            <PlayerVideoPlayer
+              videoId="apXQAnFX3JM"
+            />
+          </div>
         </div>
       </div>
     </main>

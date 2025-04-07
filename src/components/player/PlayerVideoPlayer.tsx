@@ -12,6 +12,10 @@ export const PlayerVideoPlayer = ({ videoId }: IPlayerVideoPlayerProps) => {
     <>
       <ReactPlayer
         url={`https://www.youtube.com/watch?v=${videoId}`}
+        height="100%"
+        width="100%"
+        playing
+        controls
       />
     </>
   )
