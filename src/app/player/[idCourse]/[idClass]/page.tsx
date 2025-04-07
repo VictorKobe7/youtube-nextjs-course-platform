@@ -1,5 +1,4 @@
-"use client";
-import { PlayerHeader, PlayerPlaylist, PlayerVideoPlayer } from "@/components/player";
+import { PlayerClassDetails, PlayerHeader, PlayerPlaylist } from "@/components/player";
 
 interface Props {
   params: {
@@ -9,6 +8,49 @@ interface Props {
 }
 
 export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
+  const classGroupsData = [
+    {
+      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      classes: [
+        {
+          title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+          done: true,
+          idClass: "1"
+        },
+        {
+          title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+          done: false,
+          idClass: "2"
+        },
+        {
+          title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+          done: false,
+          idClass: "3"
+        }
+      ]
+    },
+    {
+      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      classes: [
+        {
+          title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+          done: true,
+          idClass: "4"
+        },
+        {
+          title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+          done: false,
+          idClass: "5"
+        },
+        {
+          title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+          done: false,
+          idClass: "6"
+        }
+      ]
+    }
+  ];
+
   return (
     <main className="flex flex-col gap-2 h-screen">
       <PlayerHeader
@@ -21,59 +63,15 @@ export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
           <PlayerPlaylist
             playingIdCourse={idCourse}
             playingIdClass={idClass}
-            classGroups={[
-              {
-                title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-                classes: [
-                  {
-                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-                    done: true,
-                    idClass: "1"
-                  },
-                  {
-                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-                    done: false,
-                    idClass: "2"
-                  },
-                  {
-                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-                    done: false,
-                    idClass: "3"
-                  }
-                ]
-              },
-              {
-                title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-                classes: [
-                  {
-                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-                    done: true,
-                    idClass: "4"
-                  },
-                  {
-                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-                    done: false,
-                    idClass: "5"
-                  },
-                  {
-                    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-                    done: false,
-                    idClass: "6"
-                  }
-                ]
-              }
-            ]}
+            classGroups={classGroupsData}
           />
         </div>
 
-        <div className="flex-1">
-          <div className="aspect-video">
-            <PlayerVideoPlayer
-              videoId="apXQAnFX3JM"
-              onPlayNext={() => {}}
-            />
-          </div>
-        </div>
+        <PlayerClassDetails
+          playingIdCourse={idCourse}
+          playingIdClass={idClass}
+          classGroups={classGroupsData}
+        />
       </div>
     </main>
   );

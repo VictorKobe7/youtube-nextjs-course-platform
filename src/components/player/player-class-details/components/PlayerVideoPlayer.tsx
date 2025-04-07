@@ -40,7 +40,7 @@ export const PlayerVideoPlayer = ({ videoId, onPlayNext }: IPlayerVideoPlayerPro
         url={`https://www.youtube.com/watch?v=${videoId}`}
         height="100%"
         width="100%"
-        playing
+        playing={true} // não commitar
         onProgress={({ playedSeconds }) => setProgress(playedSeconds)}
         onDuration={duration => setTotalDuration(duration)}
         onEnded={() => onPlayNext()}
