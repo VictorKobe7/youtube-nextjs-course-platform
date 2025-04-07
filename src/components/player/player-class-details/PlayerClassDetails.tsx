@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { PlayerVideoPlayer } from "./components/PlayerVideoPlayer";
 import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
 import { useMemo } from "react";
+import * as Tabs from "@radix-ui/react-tabs";
 
 interface IPlayerClassDetailsProps {
   playingIdCourse: string;
@@ -33,6 +34,35 @@ export const PlayerClassDetails = ({ playingIdCourse, playingIdClass, classGroup
           onPlayNext={() => nextIdClass && router.push(`/player/${playingIdCourse}/${nextIdClass}`)}
         />
       </div>
+
+      <Tabs.Root defaultValue="class-datails">
+        <Tabs.List className="flex gap-4">
+          <Tabs.Trigger
+            value="class-datails"
+            className="p-2 flex items-center justify-center border-b-4 border-transparent data-[state=active]:border-[var(--color-primary)]"
+          >
+            Visão geral
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="class-comments"
+            className="p-2 flex items-center justify-center border-b-4 border-transparent data-[state=active]:border-[var(--color-primary)]"
+          >
+            Comentários
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="course-details"
+            className="p-2 flex items-center justify-center border-b-4 border-transparent data-[state=active]:border-[var(--color-primary)]"
+          >
+            Visão geral do curso
+          </Tabs.Trigger>
+        </Tabs.List>
+
+        <hr className="border-[var(--color-paper)]" />
+
+        <Tabs.Content value="class-datails">Visão geral</Tabs.Content>
+        <Tabs.Content value="class-comments">Comentários</Tabs.Content>
+        <Tabs.Content value="course-details">Visão geral do curso</Tabs.Content>
+      </Tabs.Root>
     </div>
   );
 }
