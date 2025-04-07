@@ -71,6 +71,11 @@ export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
           playingIdCourse={idCourse}
           playingIdClass={idClass}
           classGroups={classGroupsData}
+          course={{
+            title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            numberOfClasses: 48
+          }}
         />
       </div>
     </main>
