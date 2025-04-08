@@ -76,6 +76,10 @@ export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit.",
             numberOfClasses: 48
           }}
+          classItem={{
+            title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.\n\nlorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit.\n\nProtótipo - https://www.figma.com/community/file/1349332873161679016/plataforma-de-cursos\n\nConteúdo:\n0:00 | Introdução\n0:29 | O que veremos nessa aula\n1:10 | Cronograma no notion"
+          }}
         />
       </div>
     </main>

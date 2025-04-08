@@ -4,3 +4,4 @@ export * from "./playlist/components/PlayerClassGroup";
 export * from "./playlist/PlayerPlaylist";
 export * from "./player-class-details/components/PlayerVideoPlayer";
 export * from "./player-class-details/PlayerClassDetails";
+export * from "./player-class-details/components/PlayerClassHeader";

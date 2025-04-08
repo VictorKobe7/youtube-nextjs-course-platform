@@ -5,6 +5,7 @@ import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup"
 import { useMemo } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
 import { CourseHeader } from "@/components/course-header/CourseHeader";
+import { PlayerClassHeader } from "./components/PlayerClassHeader";
 
 interface IPlayerClassDetailsProps {
   course: {
@@ -12,12 +13,16 @@ interface IPlayerClassDetailsProps {
     description: string;
     numberOfClasses: number;
   }
+  classItem: {
+    title: string;
+    description: string;
+  }
   playingIdCourse: string;
   playingIdClass: string;
   classGroups: Pick<IPlayerClassGroupProps, "title" | "classes">[];
 }
 
-export const PlayerClassDetails = ({ playingIdCourse, playingIdClass, classGroups, course }: IPlayerClassDetailsProps) => {
+export const PlayerClassDetails = ({ playingIdCourse, playingIdClass, classGroups, course, classItem }: IPlayerClassDetailsProps) => {
   const router = useRouter();
 
   const nextIdClass = useMemo(() => {
@@ -63,9 +68,14 @@ export const PlayerClassDetails = ({ playingIdCourse, playingIdClass, classGroup
           </Tabs.Trigger>
         </Tabs.List>
 
-        <hr className="border-[var(--color-paper)]" />
+        <hr className="border-[var(--color-paper)] mb-2" />
 
-        <Tabs.Content value="class-datails">Visão geral</Tabs.Content>
+        <Tabs.Content value="class-datails">
+          <PlayerClassHeader
+            title={classItem.title}
+            description={classItem.description}
+          />
+        </Tabs.Content>
         <Tabs.Content value="class-comments">Comentários</Tabs.Content>
         <Tabs.Content value="course-details">
           <CourseHeader
