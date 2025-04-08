@@ -30,6 +30,10 @@ a {
   @apply hover:underline active:opacity-50 transition-opacity
 }
 
+button {
+  cursor: pointer;
+}
+
 .overflow-primary::-webkit-scrollbar-thumb {
   background-color: var(--color-primary);
 }

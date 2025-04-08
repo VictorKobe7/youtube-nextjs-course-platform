@@ -1,7 +1,8 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useMemo, useState } from "react";
+import { forwardRef, useImperativeHandle, useMemo, useRef, useState } from "react";
 import { MdPlayCircle } from "react-icons/md";
+import type TReactPlayer from "react-player";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
@@ -10,7 +11,15 @@ interface IPlayerVideoPlayerProps {
   onPlayNext: () => void;
 }
 
-export const PlayerVideoPlayer = ({ videoId, onPlayNext }: IPlayerVideoPlayerProps) => {
+export interface IPlayerVideoPlayerRef {
+  setProgress: (seconds: number) => void;
+}
+
+// eslint-disable-next-line react/display-name
+export const PlayerVideoPlayer = forwardRef<IPlayerVideoPlayerRef, IPlayerVideoPlayerProps>(({ videoId, onPlayNext }, playerRefToForward) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const playerRef = useRef<TReactPlayer>();
+
   const [progress, setProgress] = useState<number | undefined>(undefined);
   const [totalDuration, setTotalDuration] = useState<number | undefined>(undefined);
 
@@ -24,8 +33,17 @@ export const PlayerVideoPlayer = ({ videoId, onPlayNext }: IPlayerVideoPlayerPro
     return !!secondsUntilEnd && secondsUntilEnd <= 30;
   }, [secondsUntilEnd]);
 
+  useImperativeHandle(playerRefToForward, () => {
+    return {
+      setProgress(seconds) {
+        playerRef.current?.seekTo(seconds, "seconds");
+        wrapperRef.current?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+
   return (
-    <>
+    <div ref={wrapperRef} className="h-full">
       {showNextButton && (
         <button
           onClick={onPlayNext}
@@ -37,6 +55,7 @@ export const PlayerVideoPlayer = ({ videoId, onPlayNext }: IPlayerVideoPlayerPro
       )}
 
       <ReactPlayer
+        onReady={(ref) => playerRef.current = ref}
         url={`https://www.youtube.com/watch?v=${videoId}`}
         height="100%"
         width="100%"
@@ -46,6 +65,6 @@ export const PlayerVideoPlayer = ({ videoId, onPlayNext }: IPlayerVideoPlayerPro
         onEnded={() => onPlayNext()}
         controls
       />
-    </>
+    </div>
   )
-}
+})
