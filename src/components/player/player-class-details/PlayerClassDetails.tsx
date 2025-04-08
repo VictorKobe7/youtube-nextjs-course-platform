@@ -6,6 +6,7 @@ import { useMemo, useRef } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
 import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { PlayerClassHeader } from "./components/PlayerClassHeader";
+import { Comments } from "./components/comments/Comments";
 
 interface IPlayerClassDetailsProps {
   course: {
@@ -73,15 +74,17 @@ export const PlayerClassDetails = ({ playingIdCourse, playingIdClass, classGroup
 
         <hr className="border-[var(--color-paper)] mb-2" />
 
-        <Tabs.Content value="class-datails">
+        <Tabs.Content value="class-datails" className="px-2">
           <PlayerClassHeader
             title={classItem.title}
             description={classItem.description}
             onTimeClick={(seconds) => playerVideoPlayerRef.current?.setProgress(seconds)}
           />
         </Tabs.Content>
-        <Tabs.Content value="class-comments">Comentários</Tabs.Content>
-        <Tabs.Content value="course-details">
+        <Tabs.Content value="class-comments" className="px-2">
+          <Comments />
+        </Tabs.Content>
+        <Tabs.Content value="course-details" className="px-2">
           <CourseHeader
             title={course.title}
             description={course.description}
