@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Os melhores cursos de programação gratuitos com a melhor experiência de aprendizado e foco",
 };
 
-interface IRootLayout extends Readonly<{ children: React.ReactNode }> {}
+type IRootLayout = Readonly<{ children: React.ReactNode }>
 
 export default function RootLayout({ children }: IRootLayout) {
   return (

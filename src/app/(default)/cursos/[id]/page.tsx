@@ -1,15 +1,19 @@
 import { CourseContent } from "@/components/course-content/CourseContent";
-import { CourseHeader } from "@/components/course-header/CourseHeader";
+import { CourseHeader } from "@/components/course-header/ClientCourseHeader";
 import { StartCourse } from "@/components/StartCourse";
 import { Metadata } from "next";
 import { APIYoutube } from "@/shared/services/api-youtube";
 
-interface Props {
-  params: { id: string };
+type Params = Promise<{ id: string }>;
+
+export async function generateStaticParams() {
+  const courses = await APIYoutube.course.getAll();
+  return courses.map((course) => ({ id: course.id }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const courseDetail = await APIYoutube.course.getById(params.id);
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { id } = await params;
+  const courseDetail = await APIYoutube.course.getById(id);
 
   return {
     title: courseDetail.title,
@@ -29,8 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function PageCourseDatail({ params }: Props) {
-  const courseDetail = await APIYoutube.course.getById(params.id);
+export default async function PageCourseDetail({ params }: { params: Params }) {
+  const { id } = await params;
+  const courseDetail = await APIYoutube.course.getById(id);
   const firstClass = courseDetail.classGroups.at(0)?.classes.at(0);
 
   return (

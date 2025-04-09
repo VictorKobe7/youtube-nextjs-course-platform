@@ -4,7 +4,7 @@ import { IPlayerVideoPlayerRef, PlayerVideoPlayer } from "./components/PlayerVid
 import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
 import { useMemo, useRef } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
-import { CourseHeader } from "@/components/course-header/CourseHeader";
+import { CourseHeader } from "@/components/course-header/ClientCourseHeader";
 import { PlayerClassHeader } from "./components/PlayerClassHeader";
 import { Comments } from "./components/comments/Comments";
 

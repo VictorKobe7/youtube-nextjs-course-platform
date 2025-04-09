@@ -18,7 +18,7 @@ export interface IPlayerVideoPlayerRef {
 // eslint-disable-next-line react/display-name
 export const PlayerVideoPlayer = forwardRef<IPlayerVideoPlayerRef, IPlayerVideoPlayerProps>(({ videoId, onPlayNext }, playerRefToForward) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const playerRef = useRef<TReactPlayer>();
+  const playerRef = useRef<TReactPlayer>(null);
 
   const [progress, setProgress] = useState<number | undefined>(undefined);
   const [totalDuration, setTotalDuration] = useState<number | undefined>(undefined);

@@ -1,13 +1,9 @@
 import { PlayerClassDetails, PlayerHeader, PlayerPlaylist } from "@/components/player";
 
-interface Props {
-  params: {
-    idCourse: string;
-    idClass: string;
-  }
-}
+type Params = Promise<{ idCourse: string, idClass: string }>;
 
-export default function PagePlayer({ params: { idCourse, idClass } }: Props) {
+export default async function PagePlayer({ params }: { params: Params }) {
+  const { idCourse, idClass } = await params;
   const classGroupsData = [
     {
       title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",

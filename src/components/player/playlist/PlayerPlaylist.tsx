@@ -30,7 +30,8 @@ export const PlayerPlaylist = ({ playingIdCourse, playingIdClass, classGroups }:
               open={openedIndex === index}
               position={index + 1}
               playingIdClass={playingIdClass}
-              onCheck={(idClass) => {}}
+              // onCheck={(idClass) => {}}
+              onCheck={() => {}}
               onPlay={(idClass) => router.push(`/player/${playingIdCourse}/${idClass}`)}
               onToggle={() => setOpenedIndex(openedIndex === index ? undefined : index)}
             />
