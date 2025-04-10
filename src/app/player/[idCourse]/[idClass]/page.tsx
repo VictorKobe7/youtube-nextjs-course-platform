@@ -55,7 +55,7 @@ export default async function PagePlayer({ params }: { params: Params }) {
       />
 
       <div className="flex gap-2 h-[calc(100vh-72px)]">
-        <div className="max-w-96">
+        <div className="max-w-96 hidden md:block">
           <PlayerPlaylist
             playingIdCourse={idCourse}
             playingIdClass={idClass}
@@ -64,17 +64,21 @@ export default async function PagePlayer({ params }: { params: Params }) {
         </div>
 
         <PlayerClassDetails
-          playingIdCourse={idCourse}
-          playingIdClass={idClass}
-          classGroups={classGroupsData}
           course={{
+            id: idCourse,
             title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit.",
-            numberOfClasses: 48
+            numberOfClasses: 48,
+            classGroups: classGroupsData
           }}
           classItem={{
+            id: idClass,
+            idVideo: "apXQAnFX3JM",
             title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.\n\nlorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit.\n\nProtótipo - https://www.figma.com/community/file/1349332873161679016/plataforma-de-cursos\n\nConteúdo:\n0:00 | Introdução\n0:29 | O que veremos nessa aula\n1:10 | Cronograma no notion"
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.\n\nlorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit. lorem ipsum dolor sit amet consectetur adipisicing elit.\n\nProtótipo - https://www.figma.com/community/file/1349332873161679016/plataforma-de-cursos\n\nConteúdo:\n0:00 | Introdução\n0:29 | O que veremos nessa aula\n1:10 | Cronograma no notion",
+            viewsCount: 48,
+            likesCount: 48,
+            commentsCount: 48
           }}
         />
       </div>
