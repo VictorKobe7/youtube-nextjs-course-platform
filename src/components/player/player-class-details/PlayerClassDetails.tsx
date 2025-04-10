@@ -20,7 +20,7 @@ interface IPlayerClassDetailsProps {
   }
   classItem: {
     id: string;
-    idVideo: string;
+    videoId: string;
     title: string;
     description: string;
     viewsCount: number;
@@ -67,7 +67,7 @@ export const PlayerClassDetails = ({ course, classItem }: IPlayerClassDetailsPro
       <div className="aspect-video">
         <PlayerVideoPlayer
           ref={playerVideoPlayerRef}
-          videoId={classItem.idVideo}
+          videoId={classItem.videoId}
           onPlayNext={() => nextIdClass && router.push(`/player/${course.id}/${nextIdClass}`)}
         />
       </div>
@@ -79,7 +79,7 @@ export const PlayerClassDetails = ({ course, classItem }: IPlayerClassDetailsPro
           <span>visualizações</span>
         </div>
 
-        <a className="flex gap-1 items-center" target="_blank" href={`https://www.youtube.com/watch?v=${classItem.idVideo}`}>
+        <a className="flex gap-1 items-center" target="_blank" href={`https://www.youtube.com/watch?v=${classItem.videoId}`}>
           <MdThumbUp />
           <span>{classItem.likesCount}</span>
           <span>curtidas</span>
