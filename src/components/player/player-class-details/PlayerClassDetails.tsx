@@ -9,6 +9,7 @@ import { PlayerClassHeader } from "./components/PlayerClassHeader";
 import { Comments } from "./components/comments/Comments";
 import { PlayerPlaylist } from "../playlist/PlayerPlaylist";
 import { MdComment, MdThumbUp, MdVisibility } from "react-icons/md";
+import { ICommentProps } from "./components/comments/Comment";
 
 interface IPlayerClassDetailsProps {
   course: {
@@ -27,9 +28,10 @@ interface IPlayerClassDetailsProps {
     likesCount: number;
     commentsCount: number;
   }
+  comments: ICommentProps[];
 }
 
-export const PlayerClassDetails = ({ course, classItem }: IPlayerClassDetailsProps) => {
+export const PlayerClassDetails = ({ course, classItem, comments }: IPlayerClassDetailsProps) => {
   const router = useRouter();
 
   const playerVideoPlayerRef = useRef<IPlayerVideoPlayerRef>(null);
@@ -137,20 +139,7 @@ export const PlayerClassDetails = ({ course, classItem }: IPlayerClassDetailsPro
           />
         </Tabs.Content>
         <Tabs.Content value="class-comments" className="px-2">
-          <Comments
-            comments={[
-              {
-                author: {
-                  image: "https://yt3.ggpht.com/yti/ANjgQV-FwFmH7AXIWpDfv4vMQVFXN-FfP_8G2Ie3S07ncfI=s88-c-k-c0x00ffffff-no-rj",
-                  userName: "@user"
-                },
-                content: "1",
-                likesCount: 10,
-                publishDate: "2025-01-01T00:00:00.00Z",
-                replies: undefined
-              }
-            ]}
-          />
+          <Comments comments={comments} />
         </Tabs.Content>
         <Tabs.Content value="course-details" className="px-2">
           <CourseHeader

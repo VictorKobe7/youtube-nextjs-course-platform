@@ -36,6 +36,7 @@ export default async function PagePlayer({ params }: { params: Params }) {
   const { idCourse, idClass } = await params;
   const courseDetails = await APIYoutube.course.getById(idCourse);
   const classDetails = await APIYoutube.class.getById(idClass);
+  const comments = await APIYoutube.comments.getAllByVideoId(classDetails.videoId);
 
   const classGroupsData = courseDetails.classGroups.map((classGroup) => ({
     title: classGroup.title,
@@ -65,6 +66,7 @@ export default async function PagePlayer({ params }: { params: Params }) {
         <PlayerClassDetails
           classItem={{ ...classDetails, id: idClass }}
           course={{ ...courseDetails, classGroups: classGroupsData }}
+          comments={comments}
         />
       </div>
     </main>
