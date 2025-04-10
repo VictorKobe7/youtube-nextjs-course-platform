@@ -4,8 +4,7 @@ import { Metadata } from "next";
 
 type Params = Promise<{ idCourse: string, idClass: string }>;
 
-// export async function generateStaticParams(): Promise<Params> {
-  export async function generateStaticParams() {
+export async function generateStaticParams() {
   const courses = await APIYoutube.course.getAll();
 
   const classesByCourse = await Promise.all([
