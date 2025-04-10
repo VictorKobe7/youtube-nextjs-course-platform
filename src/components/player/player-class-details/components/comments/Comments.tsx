@@ -1,9 +1,15 @@
-import { Comment } from "./Comment"
+import { Comment, ICommentProps } from "./Comment"
 
-export const Comments = () => {
+interface ICommentsProps {
+  comments: ICommentProps[]
+}
+
+export const Comments = ({ comments }: ICommentsProps) => {
   return (
     <div className="flex flex-col gap-2">
-      <Comment />
+      {comments.map(comment => (
+        <Comment key={comment.publishDate} {...comment} />
+      ))}
     </div>
   )
 }

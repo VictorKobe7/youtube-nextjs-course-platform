@@ -82,7 +82,20 @@ export const PlayerClassDetails = ({ playingIdCourse, playingIdClass, classGroup
           />
         </Tabs.Content>
         <Tabs.Content value="class-comments" className="px-2">
-          <Comments />
+          <Comments 
+          comments={[
+            {
+              author: {
+                image: "https://yt3.ggpht.com/yti/ANjgQV-FwFmH7AXIWpDfv4vMQVFXN-FfP_8G2Ie3S07ncfI=s88-c-k-c0x00ffffff-no-rj",
+                userName: "@user"
+              },
+              content: "1",
+              likesCount: 10,
+              publishDate: "2025-01-01T00:00:00.00Z",
+              replies: undefined
+            }
+          ]}
+          />
         </Tabs.Content>
         <Tabs.Content value="course-details" className="px-2">
           <CourseHeader
