@@ -10,6 +10,7 @@ import { Comments } from "./components/comments/Comments";
 import { PlayerPlaylist } from "../playlist/PlayerPlaylist";
 import { MdComment, MdThumbUp, MdVisibility } from "react-icons/md";
 import { ICommentProps } from "./components/comments/Comment";
+import { LocalStorage } from "@/shared/services/local-storage";
 
 interface IPlayerClassDetailsProps {
   course: {
@@ -51,6 +52,15 @@ export const PlayerClassDetails = ({ course, classItem, comments }: IPlayerClass
 
     return () => matchMedia.removeEventListener("change", handleMatchMedia);
   }, [currentTab]);
+
+  useEffect(() => {
+    LocalStorage.keepWatching.set({
+      idClass: classItem.id,
+      idCourse: course.id,
+      className: classItem.title,
+      courseName: course.title
+    });
+  }, [classItem.id, course.id, classItem.title, course.title]);
 
   const nextIdClass = useMemo(() => {
     const classes = course.classGroups.flatMap((classGroup) => classGroup.classes);
