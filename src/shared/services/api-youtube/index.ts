@@ -107,6 +107,29 @@ export const APIYoutube = {
     }
   },
   class: {
+    getAllByCourseId: async (id: string) => {
+      const classes: youtube_v3.Schema$PlaylistItem[] = [];
+      let nextPageToken: string | undefined = undefined;
+
+      do {
+        await YoutubeAPIClient.playlistItems
+          .list({
+            maxResults: 50,
+            playlistId: id,
+            part: ["snippet"],
+            pageToken: nextPageToken,
+          }, { fetchImplementation: fetchWithNextConfig({ revalidate: 60 * 60 * 24 }) })
+          .then(({ data }) => {
+            classes.push(...(data.items || []));
+            nextPageToken = data.nextPageToken || undefined;
+          });
+      } while (nextPageToken);
+
+      return classes.map((classItem) => ({
+        idCourse: id,
+        id: String(classItem.id)
+      }));
+    },
     getById: async (id: string) => {
       const { data: { items: [classItem] = [] } } = await YoutubeAPIClient.playlistItems.list({
         id: [id],
